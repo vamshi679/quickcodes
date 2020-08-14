@@ -1,0 +1,35 @@
+var id=(req,res,next)=>{
+    console.log("middleware is workining")
+dbo.collection("enter collection-name").updateOne({name:'ex:EMP'},{$inc:{number:1}},(err,result)=>{
+      if(err)
+      {
+          console.log("error in reading data",err)
+      }
+      else{
+        dbo.collection("collection-name").find().toArray((err,dataArray)=>{
+            if(err)
+            {
+
+            }
+            else{
+                console.log(dataArray);
+                req.body.id=dataArray[0].name+dataArray[0].number;
+                next();
+            }
+        })
+      }
+})
+
+}
+
+//export module
+module.exports=id
+
+
+//import this module as per your requirement in apis
+const id=require('file-directory where file is stored')
+
+//usage
+app.post('/end-point',id (imported-variable) ,(req,res)=>{
+    console.log(req.body)
+})

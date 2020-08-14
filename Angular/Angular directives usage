@@ -1,0 +1,35 @@
+html:
+
+<button class="btn btn-outline-light btn-sm rounded-pill text-dark ml-1 float-right">
+      <i class="fa fa-lg" aria-hidden="true" [ngClass]="{'fa-bookmark-o' : !hide1, 'fa-bookmark' : hide1}"
+        (click)="addToSave(post.blogId)"></i>
+</button>
+
+ts:
+
+hide1: boolean = false;
+
+addToSave(bid) {
+  console.log(bid);
+  this.hide1 = !this.hide1;    
+}
+
+
+
+ngif usage:
+
+html:
+
+<div class="container-fluid" style="margin-top: 10px;" *ngIf="display">
+</div>
+
+ts:
+
+display:boolean; //default value is false
+
+ex: ngoninit(){
+"true this after content is loaded"
+this.display=true 
+}
+
+

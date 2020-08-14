@@ -1,0 +1,8 @@
+button to be placed to the right end of card
+---------------------------------------------
+
+<div>
+    <button type="button" class="align-self-end btn btn-primary" style="margin-top: auto;">
+        Get started
+    </button>
+</div>

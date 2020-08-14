@@ -1,0 +1,20 @@
+select one by one and unselect one by one 
+
+html:
+    
+    <input type="checkbox" #ref1 (click)="selection(ref1,post)">
+
+ts:
+
+selection(ref, p) {
+    if (ref.checked) {
+      this.Array1.push(p)
+    }
+    else if (!ref.checked) {
+      for (let i = 0; i < this.Array1.length; i++) {
+        if (this.Array1[i].blogId == p.blogId) {
+          this.deletedpost = this.Array1.splice(i, 1)
+        }
+      }
+    }
+  }

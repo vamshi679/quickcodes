@@ -1,0 +1,62 @@
+CDN links
+=====================			
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+Font Awesome 
+============
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  //v4.7.0
+
+or
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">   //4.7.0
+
+or
+
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">  //v4.7.0
+
+
+
+npm install --save @fortawesome/fontawesome-free  //v5
+
+or
+
+<script src="https://kit.fontawesome.com/yourcode.js"></script>  //v5  KIT approach
+
+usage:
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+
+<i class="fas fa-clock"></i>
+
+</body>
+</html>
+
+
+https://www.w3schools.com/icons/fontawesome5_intro.asp   //  from w3schools website
+
+
+fa-xs, fa-sm, fa-lg, fa-2x, fa-3x, fa-4x, fa-5x, fa-6x, fa-7x, fa-8x, fa-9x, or fa-10x    // icon styling with sizes
+
+fa-spin , fa-pulse    //to spin , to rotate
+
+
+
+
