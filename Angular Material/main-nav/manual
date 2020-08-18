@@ -1,0 +1,8 @@
+In terminal enter the command:
+
+(ng generate @angular/material:material-nav --name=main-nav)  //name can be anything bu it is mandatory 
+
+Once created, place the <mani-nav></main-nav> selector in app.component.html and done.
+
+follow the steps starting from main-nav.component.html 
+
