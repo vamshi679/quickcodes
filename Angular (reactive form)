@@ -1,0 +1,153 @@
+ng new angularreactive
+
+npm install bootstrap --save
+
+Open an Angular.json file and add the path to the Bootstrap CSS Framework.
+
+"styles": [
+  "src/styles.css",
+   "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+],
+
+// app.module.ts
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+imports: [
+    ...
+    ReactiveFormsModule
+  ],
+
+// app.component.ts
+
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+  loginForm: FormGroup;
+  constructor(private fb: FormBuilder) {
+  }
+
+  ngOnInit(): void {
+    this.initForm();
+  }
+
+  initForm(): void {
+  }
+}
+
+// app.component.ts
+
+initForm(): void {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required,
+      Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
+      password: ['', Validators.required ,validatorPassword]
+});
+
+
+<!-- app.component.html -->
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <h1 class="page-title">Login</h1>
+        <form [formGroup]="loginForm">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email"
+                   class="form-control"
+                   formControlName="email">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password"
+                   class="form-control"
+                   formControlName ="password">
+          </div>
+          
+          <button
+          [disabled]="!loginForm.valid"
+          type="submit" 
+          class="btn btn-warning"
+          >Sign In</button>
+        </form>
+      </div>
+    </div>
+</div>
+
+
+displaying errors
+
+// app.component.ts
+
+isValidInput(fieldName): boolean {
+    return this.loginForm.controls[fieldName].invalid &&
+      (this.loginForm.controls[fieldName].dirty || this.loginForm.controls[fieldName].touched);
+}
+
+validatorPassword(fc: FormControl) {
+    const value = fc.value as string;
+    const isInvalid = 'password' === value.trim().toLowerCase();
+    return isInvalid ? { passwordError: 'Password is not a strong password'} : null;
+  }
+
+<!-- app.component.html -->
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <h1 class="page-title">Login</h1>
+        <form [formGroup]="loginForm">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email"
+                   class="form-control"
+                   formControlName="email">
+          </div>
+          <div *ngIf="isValidInput('email')"
+            class="alert alert-danger">
+            <div *ngIf="loginForm.controls['email'].errors.required">
+              Email is required.
+            </div>
+            <div *ngIf="loginForm.controls['email'].errors.pattern">
+              Must be a valid email format.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password"
+                   class="form-control"
+                   formControlName ="password">
+          </div>
+          <div *ngIf="isValidInput('password')"
+            class="alert alert-danger">
+            <div *ngIf="loginForm.controls['password'].errors.required">
+              Password is required.
+            </div>
+          </div>
+
+          <button
+          [disabled]="!loginForm.valid"
+          type="submit" 
+          class="btn btn-warning"
+          >Sign In</button>
+        </form>
+      </div>
+    </div>
+</div>
+
+
+
+submitForm() {
+    console.log(this.loginForm.getRawValue());
+                          or
+    console.log(this.loginForm.value)
+}
