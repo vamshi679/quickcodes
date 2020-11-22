@@ -96,6 +96,9 @@ animation-delay: .5s;
   }
 }
 
+
+
+
 index.html
 
 <script src="https://cdnjs/cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -104,3 +107,21 @@ index.html
 			        $('loader-bg').fadeToggle();
 			},1500);
 </script>
+
+
+<label for="file-upload" class="custom-file-upload">
+    Custom Upload
+</label>
+<input id="file-upload" type="file"/>
+
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
