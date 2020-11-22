@@ -1,0 +1,28 @@
+npm install @angular/cli -g
+
+To generate new app with style&routing:-
+ng new app-name --style [css/scss/sass/...] --routing
+
+for help while creating new component:-
+ng g c --help
+
+to generate component without spec ,ts,style files:-
+ng g c component-name --skip-tests -t -s
+
+to create files inside any module:-
+ng g pipe(any) pipe-name -m module-name
+
+to add third party packages or from angular library  :- (ex-progressive web app)
+ng add @angular/pwa
+
+ng add @ng-bootstrap/schematics
+
+lazy loading
+
+ng g m module-name --route route-name --m app.module
+ or 
+ng gernerate module module-name --route route-name --module app.module
+
+Material side-nav
+
+ng g @angular/material:material-nav --name=main-nav
